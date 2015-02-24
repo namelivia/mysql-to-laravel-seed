@@ -13,13 +13,13 @@ its values are ignored. When the schema has columns that are not present in the 
 those columns will be included in the migration files, but containing empty values, you should
 fill in those values if you want with your favorite text editor.
 
-The command-line usage is:
+The command-line usage is:<br />
 ./database-to-seed -h hostname -u username -p password -d database -s schema
 
-hostname -> Hostname of the MySQL server containg the source database.
-username -> Username for the MySQL source database.
-password -> Password for the MySQL source database.
-database -> Source database name.
-schema -> Relative path for the schema file.
+hostname -> Hostname of the MySQL server containg the source database.<br />
+username -> Username for the MySQL source database.<br />
+password -> Password for the MySQL source database.<br />
+database -> Source database name.<br />
+schema -> Relative path for the schema file.<br />
 
 Eg. ./database-to-seed -h localhost -u someUser -p somePassword -d someDatabase -s ./schema.php
