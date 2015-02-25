@@ -20,16 +20,18 @@ foreach ($schema as $tableName => $columns){
 		$filePath = "seed/".snake_to_camel($tableName)."TableSeeder.php";
 		$file = fopen($filePath, "w");
 		$firstRow = ignore_timestamps(mysql_fetch_assoc($result));
-		print_comparison(array_keys($firstRow),$columns);
-		mysql_data_seek($result, 0);
 		fwrite($file,get_head($tableName));
-		while($row = ignore_timestamps(mysql_fetch_assoc($result))) {
-			$newRow = [];
-			foreach($columns as $field){
-				$newRow[$field] = isset($row[$field]) ? $row[$field] : "";
+		if($firstRow){
+			print_comparison(array_keys($firstRow),$columns);
+			mysql_data_seek($result, 0);
+			while($row = ignore_timestamps(mysql_fetch_assoc($result))) {
+				$newRow = [];
+				foreach($columns as $field){
+					$newRow[$field] = isset($row[$field]) ? $row[$field] : "";
+				}
+				$line = format_row($newRow);
+				fwrite($file,$line);
 			}
-			$line = format_row($newRow);
-			fwrite($file,$line);
 		}
 		fwrite($file,get_tail());
 		echo("File ".$filePath." created\n");	
