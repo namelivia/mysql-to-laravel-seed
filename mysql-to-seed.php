@@ -16,6 +16,9 @@ foreach ($schema as $tableName => $columns){
 	if (!$result){
 		echo("The table ".$tableName." is not present in the database and will be ignored\n");	
 	} else {
+		if (!file_exists('./seed')) {
+			mkdir('./seed', 0777, true);
+		}
 		echo("Processing the table ".$tableName."\n");	
 		$filePath = "seed/".snake_to_camel($tableName)."TableSeeder.php";
 		$file = fopen($filePath, "w");
