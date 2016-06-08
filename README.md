@@ -1,4 +1,12 @@
 # mysql-to-laravel-seed
+## WARNING
+This script was written a long time ago for solving a specific problem with on a specific
+project. Once the problem was solved I no longer updated the script and I don't have plans
+to update or maintain it soon.
+If you want to use something like this or similar @SchwarzerIT has made a proper version
+of it that is also being maintained at the time of writing this, check his repo:
+[https://github.com/SchwarzerIT/laravel-mysql-to-seeder](https://github.com/SchwarzerIT/laravel-mysql-to-seeder)
+## MySQL to Laravel Seed
 This is a php script for creating a Laravel seed files from an existing MySQL database.
 Helps solving the problem of having an outdated mysql database using an old schema version
 that contains valuable data that needs to be ported to a newer schema.
